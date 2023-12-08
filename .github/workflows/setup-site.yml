@@ -1,0 +1,12 @@
+name: Setup Authenticated GitHub Pages Site
+on: [workflow_dispatch]
+jobs:
+  setup-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install Auth0 CLI
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
+      - run: auth0
