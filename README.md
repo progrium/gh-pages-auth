@@ -1,5 +1,5 @@
 # gh-pages-auth
-Setup GitHub Pages with Auth0 authentication
+GitHub Pages with Auth0 authentication bootstrapper
 
 ## Overview
 With a little bit of manual setup, including registering and pointing a domain to GitHub, you can just fork this repository to your account using the domain as the repository name, set some variables in the repository settings, and run a GitHub Action that will set everything else up.
