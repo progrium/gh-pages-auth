@@ -78,6 +78,7 @@ cp -r ../../public /tmp/public
 export SETTINGS="{domain: \"$AUTH0_DOMAIN\", clientId: \"$SITE_CLIENT_ID\"};"
 sed -i "s|{}; //<<|$SETTINGS|" /tmp/public/auth/index.html
 
+cd ../..
 git fetch origin public
 git checkout public
 tar -C /tmp/public -cf - . | tar -xvf -
