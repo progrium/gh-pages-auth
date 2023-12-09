@@ -80,7 +80,7 @@ sed -i "s|{}; //<<|$SETTINGS|" /tmp/public/auth/index.html
 
 cd ../..
 git fetch origin public
-git checkout public
+git checkout public --
 tar -C /tmp/public -cf - . | tar -xvf -
 git add .
 git config --global user.name 'Robot'
