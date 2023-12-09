@@ -1,12 +1,14 @@
 # gh-pages-auth
-GitHub Pages with Auth0 authentication bootstrapper
+GitHub Pages with Auth0 authentication bootstrapper for self-modifying sites
 
 ## Overview
 With a little bit of manual setup, including registering and pointing a domain to GitHub, you can just fork this repository to your account using the domain as the repository name, set some variables in the repository settings, and run a GitHub Action that will set everything else up.
 
-You'll then have a static site on your domain with a simple JavaScript API to login, logout, check if authenticated, and get the current user, which if is your GitHub user will include a GitHub API token with read-write access to your repositories. 
+You'll then have a static site on your domain with a simple JavaScript API to login, logout, check if authenticated, and get the current user, which if is your GitHub user will include a GitHub API token with read-write access to your repositories. All without paid plans.
 
 You can then configure Auth0 to allow other forms of login, allow and manage other users, and build a static JavaScript site/app with this authentication.
+
+Because you login with GitHub initially and we set this up to include the GitHub API token for your user, you can use this as a foundation for a static site that modifies itself.
 
 ## Getting Started
 * **Register a domain** and point DNS to GitHub
