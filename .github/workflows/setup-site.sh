@@ -82,6 +82,8 @@ git fetch origin public
 git checkout public
 tar -C /tmp/public -cf - . | tar -xvf -
 git add .
+git config --global user.name 'Robot'
+git config --global user.email 'robot@users.noreply.github.com'
 git commit -m "initial setup"
 git push origin public
 
