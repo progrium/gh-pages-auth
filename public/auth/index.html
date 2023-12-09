@@ -17,7 +17,7 @@ function finish() {
 }
 window.onload = async () => {
   const authorizationParams = {
-    redirect_uri: window.location.href,
+    redirect_uri: `https://${window.location.hostname}/auth/`,
     audience: `https://${authSettings.domain}/api/v2/`,
     scope: "read:current_user read:user_idp_tokens update:current_user_metadata",
     prompt: "login",
@@ -49,7 +49,6 @@ window.onload = async () => {
   }
 
   if (!(await client.isAuthenticated())) {
-    finish();
     return;
   }
 
