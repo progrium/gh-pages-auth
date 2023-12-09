@@ -31,7 +31,7 @@ window.onload = async () => {
     scope: "read:current_user read:user_idp_tokens update:current_user_metadata",
     prompt: "login",
   };
-  const client = await auth0spa.createAuth0Client({authorizationParams, authSettings...});  
+  const client = await auth0spa.createAuth0Client({authorizationParams, ...authSettings});  
   if (query.includes("code=") && query.includes("state=")) {
     await client.handleRedirectCallback();
     window.history.replaceState({}, document.title, "/auth/");
