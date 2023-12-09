@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+<script type="module">
+  import * as auth from "./auth/api.js";
+  window.login = auth.login;
+  window.logout = auth.logout;
+  if (auth.isAuthenticated()) {
+    document.body.innerHTML = `Welcome, ${auth.currentUser().nickname}. <a href="javascript:void(0)" onclick="logout()">Logout</a>`;
+  } else {
+    document.body.innerHTML = `Welcome, anonymous. <a href="javascript:void(0)" onclick="login()">Login</a>`;
+  }
+</script>
+</body>
+</html>
