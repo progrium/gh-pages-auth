@@ -15,7 +15,7 @@ export SITE_CLIENT_ID=$(auth0 apps create \
   --logout-urls "https://$SITE_DOMAIN/auth/" \
   --origins "https://$SITE_DOMAIN" \
   --web-origins "https://$SITE_DOMAIN" \
-  --json --no-input -r | jq -r '.client_id'
+  --json --no-input -r | jq -r '.client_id')
 
 auth0 api connections | jq -r '.[].id' | xargs -I{} auth0 api patch connections/{} --data '{"enabled_clients":[]}'
 cat <<EOF | auth0 api post connections
