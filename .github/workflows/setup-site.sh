@@ -21,8 +21,8 @@ auth0 api connections | jq -r '.[].id' | xargs -I{} auth0 api patch connections/
 cat <<EOF | auth0 api post connections
 {
   "options": {
-    "client_id": "$GITHUB_CLIENT_ID",
-    "client_secret": "$GITHUB_CLIENT_SECRET",
+    "client_id": "$GH_CLIENT_ID",
+    "client_secret": "$GH_CLIENT_SECRET",
     "gist": false,
     "repo": true,
     "email": false,

@@ -12,6 +12,14 @@ jobs:
         run: |
           curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
           sudo cp ./auth0 /usr/local/bin
-      - run: |
+      - env:
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+          SITE_ADMIN: ${{ secrets.SITE_ADMIN }}
+          AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
+          AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
+          AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
+          GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
+          GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
+        run: |
           cd .github/workflows
           ./setup-site.sh
