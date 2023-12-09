@@ -67,7 +67,7 @@ export ACTION_ID=$(auth0 actions create \
   --secret "clientId=$AUTH0_CLIENT_ID" \
   --secret "clientSecret=$AUTH0_CLIENT_SECRET" \
   --json | jq -r '.id')
-sleep 1
+sleep 3
 auth0 actions deploy $ACTION_ID
 
 auth0 api patch actions/triggers/post-login/bindings --data '{"bindings": [{"display_name": "on-login", "ref": {"type": "action_name", "value": "on-login"}}]}'
