@@ -7,7 +7,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Install jq
-        uses: dcarbone/install-jq-action@v2
+        uses: dcarbone/install-jq-action@v2.1.0
       - name: Install Auth0 CLI
         run: |
           curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
