@@ -35,8 +35,9 @@ window.onload = async () => {
     document.body.innerHTML = params.get("error_description");
     return;
 
-  } else if (query.includes("logout")) {
+  } else if (query === "?logout") {
     localStorage.removeItem("auth:login");
+    console.log("logging out...")
     await client.logout();
     return;
 
@@ -49,6 +50,7 @@ window.onload = async () => {
   }
 
   if (!(await client.isAuthenticated())) {
+    console.log("not authenticated");
     return;
   }
 

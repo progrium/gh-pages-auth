@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eo pipefail
 
+SITE_DOMAIN="${SITE_DOMAIN:-$REPO_NAME}"
+
 auth0 login \
   --domain $AUTH0_DOMAIN \
   --client-id $AUTH0_CLIENT_ID \
@@ -65,7 +67,7 @@ export ACTION_ID=$(auth0 actions create \
   --secret "clientId=$AUTH0_CLIENT_ID" \
   --secret "clientSecret=$AUTH0_CLIENT_SECRET" \
   --json | jq -r '.id')
-sleep 3
+sleep 1
 auth0 actions deploy $ACTION_ID
 
 auth0 api patch actions/triggers/post-login/bindings --data '{"bindings": [{"display_name": "on-login", "ref": {"type": "action_name", "value": "on-login"}}]}'
@@ -79,8 +81,12 @@ export SETTINGS="{domain: \"$AUTH0_DOMAIN\", clientId: \"$SITE_CLIENT_ID\"};"
 sed -i "s|{}; //<<|$SETTINGS|" /tmp/public/auth/index.html
 
 cd ../..
-git fetch origin public
-git checkout public --
+if git ls-remote --heads origin | grep -q "refs/heads/public"; then
+  git fetch origin public
+  git checkout public --
+else
+  git switch --orphan public --
+fi
 find . -not -path './.git*' -not -name '.' -exec rm -rf {} +
 tar -C /tmp/public -cf - . | tar -xvf -
 echo $SITE_DOMAIN > CNAME
