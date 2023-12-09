@@ -81,7 +81,9 @@ sed -i "s|{}; //<<|$SETTINGS|" /tmp/public/auth/index.html
 cd ../..
 git fetch origin public
 git checkout public --
+find . -not -path './.git*' -not -name '.' -exec rm -rf {} +
 tar -C /tmp/public -cf - . | tar -xvf -
+echo $SITE_DOMAIN > CNAME
 git add .
 git config --global user.name 'Robot'
 git config --global user.email 'robot@users.noreply.github.com'

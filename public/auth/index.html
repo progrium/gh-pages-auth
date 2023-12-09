@@ -10,11 +10,9 @@ function finish() {
   const redirect = localStorage.getItem("auth:redirect");
   if (redirect) {
     localStorage.removeItem("auth:redirect");
-    //window.location.href = redirect;
-    console.log("redirect:", redirect);
+    window.location.href = redirect;
   } else {
-    // window.location.href = "/";
-    console.log("redirect: /");
+    window.location.href = "/";
   }
 }
 window.onload = async () => {

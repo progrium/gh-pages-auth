@@ -31,7 +31,7 @@ export function currentUser() {
   if (!login) {
     return null;
   }
-  return login["user"];
+  return JSON.parse(login)["user"];
 }
 
 export function accessToken() {
@@ -39,5 +39,5 @@ export function accessToken() {
   if (!login) {
     return null;
   }
-  return login["access_token"];
+  return JSON.parse(login)["access_token"];
 }

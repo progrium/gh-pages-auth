@@ -14,7 +14,7 @@ jobs:
       - name: Install Auth0 CLI
         run: |
           curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
-          sudo cp ./auth0 /usr/local/bin
+          sudo mv ./auth0 /usr/local/bin
       - env:
           SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
           SITE_ADMIN: ${{ secrets.SITE_ADMIN }}
