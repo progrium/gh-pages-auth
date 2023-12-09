@@ -16,15 +16,22 @@ function finish() {
   }
 }
 window.onload = async () => {
+  const query = window.location.search;
+  if (query === "?logout") {
+    localStorage.removeItem("auth:login");
+    console.log("logging out...")
+    finish();
+    //await client.logout();
+    return;
+  }
+
   const authorizationParams = {
     redirect_uri: `https://${window.location.hostname}/auth/`,
     audience: `https://${authSettings.domain}/api/v2/`,
     scope: "read:current_user read:user_idp_tokens update:current_user_metadata",
     prompt: "login",
   };
-  const client = await auth0spa.createAuth0Client(authSettings);
-
-  const query = window.location.search;
+  const client = await auth0spa.createAuth0Client({authorizationParams, authSettings...});  
   if (query.includes("code=") && query.includes("state=")) {
     await client.handleRedirectCallback();
     window.history.replaceState({}, document.title, "/auth/");
@@ -33,12 +40,6 @@ window.onload = async () => {
     const params = new URLSearchParams(new URL(window.location.href).search);
     console.error(params.get("error"), params.get("error_description"));
     document.body.innerHTML = params.get("error_description");
-    return;
-
-  } else if (query === "?logout") {
-    localStorage.removeItem("auth:login");
-    console.log("logging out...")
-    await client.logout();
     return;
 
   } else {

@@ -1,4 +1,4 @@
-name: Setup Authenticated GitHub Pages Site
+name: pages-auth-setup
 on: [workflow_dispatch]
 jobs:
   setup-site:
@@ -15,7 +15,9 @@ jobs:
         run: |
           curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
           sudo mv ./auth0 /usr/local/bin
-      - env:
+      - name: Set up authentication
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
           SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
           SITE_ADMIN: ${{ secrets.SITE_ADMIN }}
           AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN }}
@@ -25,4 +27,4 @@ jobs:
           GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
         run: |
           cd .github/workflows
-          ./setup-site.sh
+          ./setup-auth.sh
