@@ -2,7 +2,7 @@
 Auth0 and GitHub Pages bootstrapper for self-modifying sites
 
 ## Overview
-With a little bit of manual setup, including registering and pointing a domain to GitHub, you can just fork this repository to your account using the domain as the repository name, set some variables in the repository settings, and run a GitHub Action that will set everything else up.
+After registering and pointing a domain to GitHub, you can just fork this repository to your account using the domain as the repository name, set some variables in the repository settings, and run a GitHub Action that will set everything else up.
 
 You'll then have a static site on your domain with a simple JavaScript API to login, logout, check if authenticated, and get the current user, which if is your GitHub user will include a GitHub API token with read-write access to your repositories. All without paid plans.
 
