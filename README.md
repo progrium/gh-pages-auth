@@ -64,8 +64,8 @@ You can now go to your domain and a placeholder `index.html` will let you login,
 ## Auth module
 You can modify your site however you like, but unless you know what you're doing, leave the `auth` directory as is. This is your "auth module" that handles login flows with Auth0 and contains the JavaScript ES module `/auth/api.js` that you can import and use to interact with authentication. It exposes this API as exported functions:
 
-* `login(redirect?: string)` - This will redirect the user to authenticate and use the optional `redirect` param to redirect back to. It defaults to `/`.
-* `logout(redirect?: string)` - This will redirect the user to clear authentication and use the optional `redirect` param to redirect back to. It defaults to `/`.
+* `login(redirect?: string)` - This will redirect the user to authenticate and use the optional `redirect` param to redirect back to. It defaults to the current page.
+* `logout(redirect?: string)` - This will redirect the user to clear authentication and use the optional `redirect` param to redirect back to. It defaults to the current page.
 * `isAuthenticated(): boolean` - Whether or not the user has authenticated.
 * `currentUser(): Object|null` - If authenticated, it will return an object with user information. If not authenticated, it returns `null`. If this user is the SITE_ADMIN it will contain a GitHub API access token with `repo` and `profile` scope.
 * `accessToken(): string|null` - If authenticated, it will return the Auth0 access token JWT. If not authenticated, it returns `null`.
