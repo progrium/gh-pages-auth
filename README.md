@@ -14,7 +14,7 @@ Because you login with GitHub initially and we set this up to include the GitHub
     * Create `ALIAS` record if possible to `<username>.github.io`
     * Or create an `A` record to `185.199.108.153` (GitHub IPs)
   * Also create a `www` subdomain record so GitHub Pages is happy
-* Create a free Auth0 account and tenant
+* [Create a free Auth0 account](https://auth0.com/signup) and tenant
 * **Set up and get Auth0 credentials** for the `Default App` in your tenant:
   * Change it to `Machine to Machine`:
     * On the Dashboard under Applications in the sidebar, select Applications
