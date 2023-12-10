@@ -9,6 +9,8 @@ You'll then have a static site on your domain with a simple JavaScript API to lo
 Because you login with GitHub initially and we set this up to include the GitHub API token for your user, you can use this as a foundation for a static site that can modify itself when you're logged in.
 
 ## Getting Started
+This may look like a lot but these are step-by-step instructions for setting up the 3 prerequisites (domain, Auth0, and GitHub OAuth client) needed before the rest is automated:
+
 * **Register a domain** and point DNS to GitHub
   * Create root/apex record
     * Create `ALIAS` record if possible to `<username>.github.io`
@@ -40,7 +42,7 @@ Because you login with GitHub initially and we set this up to include the GitHub
     * `https://{AUTH0_DOMAIN}/login/callback`
   * Copy and store the Client ID
   * Generate, copy, and store a Client Secret
-* **Fork this repository**, using your domain as the new repository name
+* **Fork this repository**, using your custom domain as the new repository name
 * Go into `Settings > Secrets and variables > Actions` and **create these Repository Secrets** using fields from before:
   * GH_CLIENT_ID => your GitHub OAuth app Client ID
   * GH_CLIENT_SECRET => your GitHub OAuth app Client Secret
