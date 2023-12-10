@@ -38,7 +38,7 @@ This may look like a lot but these are step-by-step instructions for setting up 
   * Go to your [account settings](https://github.com/settings/profile) and go to Developer Settings.
   * Under OAuth Apps, create a new OAuth App. This will show when you Login with GitHub.
   * Name and Homepage URL are up to you, but should represent your new website.
-  * Using the Auth0 tenant domain, set Authorization callback URL to:
+  * Using the Auth0 tenant domain in place of `{AUTH0_DOMAIN}`, set Authorization callback URL to:
     * `https://{AUTH0_DOMAIN}/login/callback`
   * Copy and store the Client ID
   * Generate, copy, and store a Client Secret
@@ -58,10 +58,10 @@ This may look like a lot but these are step-by-step instructions for setting up 
 * Go to `Settings > Pages` and **select the `public` branch** to deploy from and hit Save. It will provision TLS and check DNS for the custom domain (which you don't have to set) and may complain unless you also set up a `www` subdomain, but should be fine without. 
 * Lastly, be sure to **check "Enforce HTTPS"** when TLS setup has finished. You may have to manually refresh the page for this to become available.
 
-You can now go to your domain and a placeholdler `index.html` will let you login, see your logged in user, and logout. 
+You can now go to your domain and a placeholder `index.html` will let you login, see your logged in user, and logout. 
 
 ## Auth module
-You can modify your site however you like, but leave the `auth` directory as is. This is your "auth module" that handles login flows with Auth0 and contains the JavaScript ES module `/auth/api.js` that you can import and use to interact with authentication. It exposes this API as exported functions:
+You can modify your site however you like, but unless you know what you're doing, leave the `auth` directory as is. This is your "auth module" that handles login flows with Auth0 and contains the JavaScript ES module `/auth/api.js` that you can import and use to interact with authentication. It exposes this API as exported functions:
 
 * `login(redirect?: string)` - This will redirect the user to authenticate and use the optional `redirect` param to redirect back to. It defaults to `/`.
 * `logout(redirect?: string)` - This will redirect the user to clear authentication and use the optional `redirect` param to redirect back to. It defaults to `/`.
