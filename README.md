@@ -55,6 +55,7 @@ This may look like a lot but these are step-by-step instructions for setting up 
   * Enable GitHub logins
   * Create an Auth0 Action on login to only allow your user and to include the GitHub API token in your userdata
   * Reset Management API permissions on Default App to just the few that are needed from here on
+  * Push an `auth` directory and placeholder homepage to a branch called `public`
 * Go to `Settings > Pages` and **select the `public` branch** to deploy from and hit Save. It will provision TLS and check DNS for the custom domain (which you don't have to set) and may complain unless you also set up a `www` subdomain, but should be fine without. 
 * Lastly, be sure to **check "Enforce HTTPS"** when TLS setup has finished. You may have to manually refresh the page for this to become available.
 
