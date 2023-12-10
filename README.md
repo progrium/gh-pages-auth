@@ -6,7 +6,7 @@ After registering and pointing a domain to GitHub, you can just fork this reposi
 
 You'll then have a static site on your domain with a simple JavaScript API to login, logout, check if authenticated, and get the current user, which if is your GitHub user will include a GitHub API token with read-write access to your repositories. All without paid plans.
 
-Because you login with GitHub initially and we set this up to include the GitHub API token for your user, you can use this as a foundation for a static site that modifies itself.
+Because you login with GitHub initially and we set this up to include the GitHub API token for your user, you can use this as a foundation for a static site that can modify itself when you're logged in.
 
 ## Getting Started
 * **Register a domain** and point DNS to GitHub
