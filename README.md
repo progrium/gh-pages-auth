@@ -35,7 +35,7 @@ This may look like a lot but these are step-by-step instructions for setting up 
       * Client ID
       * Client Secret
 * **Create an OAuth App** on your GitHub account for your site:
-  * Go to your [account settings](https://github.com/settings/profile) and go to Developer Settings.
+  * Go to your [GitHub account settings](https://github.com/settings/profile) and go to Developer Settings.
   * Under OAuth Apps, create a new OAuth App. This will show when you Login with GitHub.
   * Name and Homepage URL are up to you, but should represent your new website.
   * Using the Auth0 tenant domain in place of `{AUTH0_DOMAIN}`, set Authorization callback URL to:
