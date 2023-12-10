@@ -1,5 +1,5 @@
 # gh-pages-auth
-Auth0 and GitHub Pages bootstrapper for self-modifying sites
+Auth0 and GitHub Pages bootstrapper for self-modifying static sites
 
 ## Overview
 After registering and pointing a domain to GitHub, you can just fork this repository to your account using the domain as the repository name, set some variables in the repository settings, and run a GitHub Action that will set everything else up.
